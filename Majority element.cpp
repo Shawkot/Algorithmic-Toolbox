@@ -1,3 +1,4 @@
+// "Divide and Conquer" approach
 #include <algorithm>
 #include <iostream>
 #include <vector>
