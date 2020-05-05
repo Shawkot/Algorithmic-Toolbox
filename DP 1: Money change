@@ -1,0 +1,36 @@
+// Dynamic Programming (DP) approach
+
+#include <iostream>
+#include <cmath>
+
+const int INF = 100000;
+
+using namespace std;
+
+int moneyChange(int m)
+{
+    int i, j;
+    int coins[3] = {1,3,4};
+    int n = 3;
+    int numcoin[m+1];
+    numcoin[0] = 0;
+
+    for(i=1; i<=m; i++){
+        int minimum = INF;
+        for(j=0; j < n; j++){
+            if(i >= coins[j]){
+                minimum = min(minimum, 1 + numcoin[i-coins[j]]);
+            }
+        }
+        numcoin[i] = minimum;
+    }
+    return numcoin[m];
+}
+
+int main()
+{
+    int n;
+    cin >> n;
+    cout << moneyChange(n);
+    return 0;
+}
