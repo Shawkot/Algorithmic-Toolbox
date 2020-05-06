@@ -29,8 +29,9 @@ void primitive_calculator(int number)
     cout << min_steps[number] << "\n";
 
     vector<int> sequence;
-    for (int i = number; i != 0; i = predecessor[i]) {
+    for (int i = number; i != 0; ) {
         sequence.push_back(i);
+        i = predecessor[i];
     }
     reverse(sequence.begin(), sequence.end());
     for (int i=0; i < sequence.size(); i++) {
